@@ -14,5 +14,11 @@ namespace MyWebFormApp.BLL.Interfaces
 
         void DeleteFoodLog(int log_id);
 
+        IEnumerable<GetAllFoodDTO> GetAllFood();
+
+
+
+        IEnumerable<ConsumedFoodsOnDateDTO> consumedFoodsOnDates(int userID, DateTime date);
+
     }
 }

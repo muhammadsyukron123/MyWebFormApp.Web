@@ -163,6 +163,7 @@
     <Content Include="FormParamPage.aspx" />
     <Content Include="GetQueryStringParamPage.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="NutritionListWithListView.aspx" />
     <Content Include="ProductPage.aspx" />
     <Content Include="QueryStringParamPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -1980,6 +1981,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NutritionListWithListView.aspx.designer.vb">
+      <DependentUpon>NutritionListWithListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NutritionListWithListView.aspx.vb">
+      <DependentUpon>NutritionListWithListView.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ProductPage.aspx.designer.vb">
       <DependentUpon>ProductPage.aspx</DependentUpon>

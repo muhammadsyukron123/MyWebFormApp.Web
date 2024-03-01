@@ -89,5 +89,47 @@ namespace MyWebFormApp.DAL
                 return results;
             }
         }
+
+        public IEnumerable<GetAllFood> GetAllFood()
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnectionString()))
+            {
+                var sqlSP = @"usp_GetAllFood";
+                var results = conn.Query<GetAllFood>(sqlSP, commandType: System.Data.CommandType.StoredProcedure);
+                return results;
+            }
+        }
+
+        public IEnumerable<ConsumptionDate> consumptionDates(int userID)
+        {
+            using(SqlConnection conn = new SqlConnection(GetConnectionString()))
+            {
+                var sqlSP = @"GetConsumptionDatesForUser";
+                var param = new { user_id = userID };
+                var results = conn.Query<ConsumptionDate>(sqlSP, param, commandType: System.Data.CommandType.StoredProcedure);
+                return results;
+            }
+        }
+
+        public IEnumerable<ConsumedFoodsOnDate> consumedFoodsOnDates(int userID, DateTime date)
+        {
+            using(SqlConnection conn = new SqlConnection(GetConnectionString()))
+            {
+                var sqlSP = @"GetConsumedFoodsOnDate";
+                var param = new { user_id = userID, log_date = date };
+                var results = conn.Query<ConsumedFoodsOnDate>(sqlSP, param, commandType: System.Data.CommandType.StoredProcedure);
+                return results;
+            }
+        }
+
+        public void AddFoodConsumption(int userID, string foodName, decimal quantity)
+        {
+            using(SqlConnection conn = new SqlConnection(GetConnectionString()))
+            {
+                var sqlSP = @"usp_AddFoodConsumptionByName";
+                var param = new { user_id = userID, food_name = foodName, quantity = quantity };
+                conn.Execute(sqlSP, param, commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
     }
 }
